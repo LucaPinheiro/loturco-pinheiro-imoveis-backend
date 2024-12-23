@@ -13,7 +13,7 @@ class StageEnum(Enum):
 class Env:
     load_dotenv()
     
-    STAGE: StageEnum = StageEnum(os.getenv("STAGE", StageEnum.TEST.value))
+    STAGE: StageEnum = os.environ.get("STAGE")
     
     DATABASE_URL: str = os.environ.get("DATABASE_URL")
     
