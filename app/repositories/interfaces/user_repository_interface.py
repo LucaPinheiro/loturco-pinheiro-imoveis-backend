@@ -1,5 +1,7 @@
 from abc import ABC, abstractmethod
 
+from app.entities.user import User
+
 
 class IUserRepository(ABC):
     
