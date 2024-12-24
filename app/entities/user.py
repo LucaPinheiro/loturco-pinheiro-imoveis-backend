@@ -19,7 +19,6 @@ class User(BaseModel):
             password=user.password
         )
         
-    @classmethod
     def to_orm(self) -> UserModel:
         return UserModel(
             id=self.id,
