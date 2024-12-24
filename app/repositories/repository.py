@@ -8,6 +8,7 @@ import os
 from app.helpers.exceptions import DatabaseException
 
 from app.env import Env, StageEnum
+from app.repositories.database.user_repository_postgres import UserRepositoryPostgres
 from app.repositories.interfaces.user_repository_interface import IUserRepository
 from app.repositories.mocks.user_repository_mock import UserRepoMock
 
@@ -33,8 +34,8 @@ class Repository:
             self.user_repo = UserRepoMock()
 
     def _initialize_real_repositories(self, user_repo):
-        if user_repo:
-            self.session = self.__connect_db()
+            if user_repo:
+                self.user_repo = UserRepositoryPostgres(self.session)
 
             
     def close_session(self):
