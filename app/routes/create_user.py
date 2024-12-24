@@ -16,10 +16,7 @@ class UseCase:
         self.user_repo = self.repository.user_repo
     
     def execute(self, schema: CreateUserRequest):
-        print('entrou no execute')
         id = uuid.uuid4().hex
-        print(id)
-        print('vai chamar User class')
         user = User(
             id=id,
             name=schema.name,
@@ -37,10 +34,9 @@ class Controller:
             schema = CreateUserRequest(**request.body)
             print(schema)
             use_case = UseCase()
-            print('chamou o usecase')
             use_case.execute(schema)
             
-            return HTTPResponse(status_code=201, message="Successful!")
+            return HTTPResponse(status_code=201, message="Usuário criado com sucesso!")
         
         except Exception as e:
             error_message = str(e)
@@ -53,12 +49,16 @@ def lambda_handler(event, context):
     
     return response.to_dict()
 
+
+
+# Exemplo de teste local da rota
+
 import json
 
 if __name__ == "__main__":
     event = {
         "body": json.dumps({
-            "name": "John Doe",
+            "name": "Lucão",
             "email": "luca@email.com",
             "password": "securepassword123"
         })
