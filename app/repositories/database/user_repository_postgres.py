@@ -8,13 +8,8 @@ class UserRepositoryPostgres(IUserRepository):
         self.db = db
         
     def create_user(self, user: User) -> None:
-        print(user,  " user no db postgres")
         user_orm = user.to_orm()
-        print('*************')
-        print(user_orm, " user_orm no db postgres")
         self.db.add(user_orm)
-        print('*************')
-        print(user_orm, " user_orm no db postgres foi adicionado")
         self.db.commit()
     
 
