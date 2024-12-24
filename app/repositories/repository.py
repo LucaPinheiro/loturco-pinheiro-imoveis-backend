@@ -35,7 +35,9 @@ class Repository:
 
     def _initialize_real_repositories(self, user_repo):
             if user_repo:
-                self.user_repo = UserRepositoryPostgres(self.session)
+                self.session = self.__connect_db()
+                if user_repo:
+                    self.user_repo = UserRepositoryPostgres(self.session)
 
             
     def close_session(self):
