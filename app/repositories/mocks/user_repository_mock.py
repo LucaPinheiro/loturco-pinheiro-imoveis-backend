@@ -22,4 +22,9 @@ class UserRepoMock(IUserRepository):
         ]
         
     def create_user(self, user: User) -> None:
+        print('chegou aqui no create_user do mock') 
+        print("user no db mock", user)
         self.users.append(user)
+        
+        
+
