@@ -4,6 +4,7 @@ from typing import List, Optional, Self, Type
 from app.models.models import Property as PropertyModel
 
 class Property(BaseModel):
+    id: str
     sub_locality: str
     city: str
     street: str
@@ -37,6 +38,7 @@ class Property(BaseModel):
     @classmethod
     def from_orm(cls, property: Type[PropertyModel]) -> Self:
         return cls(
+            id=property.id,
             sub_locality=property.sub_locality,
             city=property.city,
             street=property.street,
@@ -107,6 +109,7 @@ class Property(BaseModel):
 
         property = {
             "data": {
+            "id": self.id,
             "adress": {
                 "subLocality": self.sub_locality,
                 "city": self.city,
