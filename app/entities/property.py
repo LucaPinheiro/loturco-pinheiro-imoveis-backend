@@ -107,46 +107,52 @@ class Property(BaseModel):
         if exclude is None:
             exclude = []
 
-        property = {
-            "data": {
+        property_data = {
             "id": self.id,
-            "adress": {
-                "subLocality": self.sub_locality,
-                "city": self.city,
-                "street": self.street,
-                "houseNumber": self.house_number,
-                "complement": self.complement,
-                "postalCode": self.postal_code
-            },
-            "leisure": {
-                "pool": self.pool,
-                "gourmet": self.gourmet,
-                "grill": self.grill,
-                "partyRoom": self.party_room,
-                "playground": self.playground,
-                "sportsCourt": self.sports_court,
-                "gym": self.gym,
-                "sauna": self.sauna
-            },
-            "gallery": self.gallery,
-            "type": self.type,
             "name": self.name,
             "description": self.description,
+            "type": self.type,
             "phone": self.phone,
             "email": self.email,
             "area": self.area,
             "bedrooms": self.bedrooms,
             "suites": self.suites,
             "bathrooms": self.bathrooms,
-            "parkingSpaces": self.parking_spaces,
+            "parking_spaces": self.parking_spaces,
             "floor": self.floor,
             "price": self.price,
             "condominium": self.condominium,
-            "iptu": self.iptu
-            }
+            "iptu": self.iptu,
+            "address": {
+                "sub_locality": self.sub_locality,
+                "city": self.city,
+                "street": self.street,
+                "house_number": self.house_number,
+                "complement": self.complement,
+                "postal_code": self.postal_code
+            },
+            "leisure": {
+                "pool": self.pool,
+                "gourmet": self.gourmet,
+                "grill": self.grill,
+                "party_room": self.party_room,
+                "playground": self.playground,
+                "sports_court": self.sports_court,
+                "gym": self.gym,
+                "sauna": self.sauna
+            },
+            "gallery": self.gallery,
         }
 
         for key in exclude:
-            property.pop(key, None)
+            property_data.pop(key, None)
 
-        return property
+        return {"data": property_data}
+
+
+
+
+
+
+
+
