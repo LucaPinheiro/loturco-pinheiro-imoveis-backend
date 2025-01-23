@@ -15,12 +15,12 @@ class DeployStack(Stack):
 
         gateway_resource = GatewayResource(
             self,
-            construct_id='Loturco_Pinheiro_Gateway',
+            construct_id=environment.STACK_NAME + "_Gateway",
             environment=environment
         )
         
         lambda_resource = LambdaResource(
             self, 
-            gateway_resource=gateway_resource,
+            gateway_resource=environment.STACK_NAME + "_Lambda",
             environment=environment,
         )
