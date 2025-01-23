@@ -8,8 +8,9 @@ from deploy.deploy_stack import DeployStack
 
 
 app = cdk.App()
-DeployStack(app, "DeployStack",
+DeployStack(
     app,
+    ENVIRONMENT.STACK_NAME,
     env=cdk.Environment(
         account=ENVIRONMENT.AWS_ACCOUNT_ID,
         region=ENVIRONMENT.AWS_REGION
