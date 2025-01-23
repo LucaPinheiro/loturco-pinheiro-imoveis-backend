@@ -5,8 +5,8 @@ from aws_cdk import (
 )
 from constructs import Construct
 
-from deploy.deploy.gateway_resource import GatewayResource
-from deploy.deploy.lambda_resource import LambdaResource
+from .gateway_resource import GatewayResource
+from .lambda_resource import LambdaResource
 
 class DeployStack(Stack):
 
