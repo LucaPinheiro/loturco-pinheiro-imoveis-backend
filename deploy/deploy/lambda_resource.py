@@ -63,12 +63,12 @@ class LambdaResource(Construct):
         lambda_function = self.__create_lambda(name, path)
         
         self.root_resource.add_resource(
-            name.replace('_', '-'),
-            default_cors_preflight_options={
-                "allow_origins": "*",
-                "allow_methods": "*",
-                "allow_headers": "*"
-            },
+        name.replace('_', '-'),
+        default_cors_preflight_options=apigateway.CorsOptions(
+            allow_origins=apigateway.Cors.ALL_ORIGINS,
+            allow_methods=apigateway.Cors.ALL_METHODS,
+            allow_headers=['*']
+            )
         ).add_method(
             method,
             apigateway.LambdaIntegration(lambda_function),
