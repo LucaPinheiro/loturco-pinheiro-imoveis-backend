@@ -20,7 +20,8 @@ class DeployStack(Stack):
         )
         
         lambda_resource = LambdaResource(
-            self, 
-            gateway_resource=environment.STACK_NAME + "_Lambda",
+            self,
+            construct_id=environment.STACK_NAME + "_Lambda", 
+            gateway_resource=gateway_resource,
             environment=environment,
         )
