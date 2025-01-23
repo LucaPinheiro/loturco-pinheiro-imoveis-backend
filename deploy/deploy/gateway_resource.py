@@ -1,10 +1,10 @@
+import datetime
 from typing import Any, Dict
 from aws_cdk import (
     Duration,
     aws_lambda as _lambda,
     aws_apigateway as apigateway
 )
-from time import datetime
 from constructs import Construct
 
 from deploy.deploy.setup import ENVIRONMENT
