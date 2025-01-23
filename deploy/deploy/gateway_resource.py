@@ -7,7 +7,7 @@ from aws_cdk import (
 )
 from constructs import Construct
 
-from deploy.deploy.setup import ENVIRONMENT
+from .setup import ENVIRONMENT
 
 
 class GatewayResource(Construct):
