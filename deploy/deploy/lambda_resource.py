@@ -18,7 +18,7 @@ class LambdaResource(Construct):
         **kwargs
     ) -> None:
         super().__init__(scope, construct_id, **kwargs)
-        self.gatway_resource = gateway_resource
+        self.gateway_resource = gateway_resource
         self.environment = environment.to_dict()
         
         # Creating layer
