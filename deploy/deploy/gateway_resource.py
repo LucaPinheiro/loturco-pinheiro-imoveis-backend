@@ -34,7 +34,7 @@ class GatewayResource(Construct):
         # Creating deployment
         self.deployment = apigateway.Deployment(
             self, 
-            f'Deployment{int(datetime.now().timestamp())}',
+            f'Deployment{int(datetime.datetime.now().timestamp())}',
             api=self.api_gateway
         )
         
