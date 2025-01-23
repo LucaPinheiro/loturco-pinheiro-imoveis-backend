@@ -2,8 +2,8 @@ from constructs import Construct
 
 from aws_cdk import Duration, aws_lambda as _lambda, aws_apigateway as apigateway
 
-from deploy.deploy.gateway_resource import GatewayResource
-from deploy.deploy.setup import ENVIRONMENT
+from .gateway_resource import GatewayResource
+from .setup import ENVIRONMENT
 
 
 
