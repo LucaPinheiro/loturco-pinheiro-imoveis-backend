@@ -3,7 +3,7 @@ import os
 
 import aws_cdk as cdk
 
-from deploy.deploy.setup import ENVIRONMENT
+from deploy.setup import ENVIRONMENT
 from deploy.deploy_stack import DeployStack
 
 
